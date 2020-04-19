@@ -17,16 +17,23 @@ class App extends Component{
         break;
       case '-':
         var solution = this.state.value1 - this.state.value2
-        this.setState({value1: '', value2: '', result: this.state.value1 - this.state.value2});
+        this.setState({value1: '', value2: '', result: solution});
         break;
       case '*':
-        this.setState({value1: '', value2: '', result: this.state.value1 - this.state.value2});
+        var solution = this.state.value1 * this.state.value2
+        this.setState({value1: '', value2: '', result: solution});
+        break;
       case '/':
         if (this.state.value2 == 0) {
-            var solution = ("ERROR: DIVIDE BY 0 IS UNDEFINED")
-            this.setState({value1: '', value2: '', result: solution})
+          var solution = ("ERROR: DIVIDE BY 0 IS UNDEFINED")
+          this.setState({value1: '', value2: '', result: solution})
             }
-        break
+        else{
+          var solution = this.state.value1 / this.state.value2
+          this.setState({value1: '', value2: '', result: solution})
+          
+        }
+        break;
     }
   }
 
@@ -47,5 +54,5 @@ function App() {
     </div>
  );
 }
-}
+
 ReactDOM.render(<App />, document.getElementById("root"))
